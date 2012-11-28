@@ -12,7 +12,16 @@
 			<form action="newuser.php" method="GET">
 				<input type="submit" value="New User?">
 			</form>
+			<br />
+			<br />
 			<form action="authenticateuser.php" method="POST">
+				<label for="user">Username or Email</label>
+				<input type="text" name="user" id="user"/>
+				<br />
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password"/>
+				<br />
+				<input type="submit" value="Log In?"/>
 			</form>
 		</div>
 	</div>
