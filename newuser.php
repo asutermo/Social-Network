@@ -32,8 +32,18 @@
 				<input type="file" name="image" id="image"/>
 				<br />
 				<label for="gender">Gender</label>
+				<select name="gender" id="gender">
+					<option value="na">Not Applicable</option>
+					<option value="female">Female</option>
+					<option value="male">Male</option>
+					<option value="other">Other</option>
+				</select>
+				<br />
 				<label for="age">Age</label>
+				<input type="number" name="age" id="age" min="13" max="150"/>
+				<br />
 				<label for="other">Other</label>
+				<input type="text" name="other" id="other"/>
 				<input type="submit" value="Log In?"/>
 			</form>
 		</div>
