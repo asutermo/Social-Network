@@ -1,7 +1,4 @@
-<?php
-	include_once("util.php");
-	add_header();
-?>
+
 <title>Sign up bro</title>
 </head>
 
@@ -9,7 +6,7 @@
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>
-			<form action="createuser.php" method="POST">
+			<form action="partials/signup.php" method="POST">
 				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />
