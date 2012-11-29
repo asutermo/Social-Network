@@ -1,12 +1,9 @@
 <?php
-	
 	session_start();
-	if (isset($_SESSION['visitor'])) {
-		header("Location: profile.php");
-	}
-	include_once("util.php");
-	add_header();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
 <title>What up homie?</title>
 </head>
 
