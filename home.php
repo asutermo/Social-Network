@@ -15,6 +15,7 @@
 	<div>
 		You logged in!
 	</div>
-	<a href="partials/logout.php">Now logout!</a>
+	<a href="profile.php">Profile!</a>
+	
 </body>
 </html>

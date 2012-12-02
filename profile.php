@@ -12,5 +12,8 @@
 	<title>Profile Page</title>
 </head>
 <body>
+	<div>
+		<a href="partials/logout.php">Now logout!</a>
+	</div>
 </body>
 </html>

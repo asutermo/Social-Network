@@ -36,6 +36,6 @@
 		$_SESSION['username'] = $username;
 		$_SESSION['user_id'] = $user['user_id'];
 
-		header("Location: profile.php");
+		header("Location: ../home.php");
 	}
 ?>
