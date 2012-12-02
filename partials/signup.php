@@ -38,4 +38,5 @@
 
 		header("Location: ../home.php");
 	}
+	$db.close();
 ?>
