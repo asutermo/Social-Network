@@ -18,8 +18,8 @@
 			<br />
 			<br />
 			<?php
-				echo $_SESSION['error'];
-		    	$_SESSION['error'] = "";
+				echo $_SESSION['failure'];
+		    	$_SESSION['failure'] = "";
 			?>
 			<form action="partials/login.php" method="POST" onsubmit="return validate_login(this)">
 				<label for="user">Username</label>
