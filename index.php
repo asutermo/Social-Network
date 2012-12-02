@@ -24,7 +24,7 @@
 				}
 				
 			?>
-			<form action="partials/login.php" method="POST" onsubmit="return validate_login(this)">
+			<form action="partials/login.php" method="POST">
 				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />

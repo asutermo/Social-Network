@@ -38,5 +38,5 @@
 
 		header("Location: ../home.php");
 	}
-	$db.close();
+	$db->close();
 ?>

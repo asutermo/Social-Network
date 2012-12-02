@@ -22,11 +22,12 @@
 		$uid = $user['user_id'];
 		$_SESSION['user_id'] = $uid;
 		
-		header("Location: home.php");
+		header("Location: ../home.php");
 	}
 	else {
 		$_SESSION['logged_on'] = false;
 		$_SESSION['failure'] = "Failed to log in";
 		header("Location: ../index.php");	
 	}
+	$db->close();
 ?>
