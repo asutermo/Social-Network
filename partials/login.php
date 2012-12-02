@@ -22,7 +22,7 @@
 		$uid = $user['user_id'];
 		$_SESSION['user_id'] = $uid;
 		
-		header("Location: profile.php");
+		header("Location: home.php");
 	}
 	else {
 		$_SESSION['logged_on'] = false;
