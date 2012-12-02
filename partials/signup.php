@@ -17,4 +17,14 @@
 	//check for pre-existing emails
 	$result = $db->query("SELECT * FROM users WHERE email='{$email}'");
 	$count = mysqli_num_rows($result);
+
+	//if validation fails
+	if ($count != 0) {
+		$_SESSION['error'] = "This email has already been used.";
+		header("Location: ../newuser.php");
+	}
+	else {
+		$stmt = $db->prepare("INSERT INTO users (username, first_name, last_name, email, password, profile_pic, gender, age, other) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
+	}
 ?>
