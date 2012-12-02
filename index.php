@@ -17,8 +17,12 @@
 			</form>
 			<br />
 			<br />
-			<form action="authenticateuser.php" method="POST" onsubmit="return validate_login(this)">
-				<label for="user">Username or Email</label>
+			<?php
+				echo $_SESSION['error'];
+		    	$_SESSION['error'] = "";
+			?>
+			<form action="partials/login.php" method="POST" onsubmit="return validate_login(this)">
+				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />
 				<label for="password">Password</label>
