@@ -11,16 +11,12 @@
 	//$db = new mysqli(localhost, team04, fuchsia, team04);
 	@ $db = new mysqli(localhost, root, '', team04);
 
-	$result = $db->query("SELECT * FROM users WHERE user='{$username}' AND password='{$password}'");
+	$result = $db->query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
 	$count = mysqli_num_rows($result);
 
 	if ($count != 0) {
 		$user = $result->fetch_assoc();
 		$_SESSION['logged_on'] = true;
-		$uname = $user['email'];
-		$_SESSION['username'] = $uname;
-		$uid = $user['user_id'];
-		$_SESSION['user_id'] = $uid;
 		
 		header("Location: ../home.php");
 	}
