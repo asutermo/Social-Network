@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>What up homie?</title>
+	<script language="JavaScript" src="validator.js"></script>
+	<title>What up homie?</title>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 			</form>
 			<br />
 			<br />
-			<form action="authenticateuser.php" method="POST">
+			<form action="authenticateuser.php" method="POST" onsubmit="return validate_login(this)">
 				<label for="user">Username or Email</label>
 				<input type="text" name="user" id="user"/>
 				<br />

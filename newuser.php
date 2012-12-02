@@ -1,12 +1,17 @@
-
-<title>Sign up bro</title>
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<script language="JavaScript" src="validator.js"></script>
+	<title>What up homie?</title>
 </head>
-
 <body>
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>
-			<form action="partials/signup.php" method="POST">
+			<form action="partials/signup.php" method="POST" onsubmit="return validate_signup(this)">
 				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />
@@ -41,7 +46,7 @@
 				<br />
 				<label for="other">Other</label>
 				<input type="text" name="other" id="other"/>
-				<input type="submit" value="Log In?"/>
+				<input type="submit" value="Sign up?"/>
 			</form>
 		</div>
 	</div>
