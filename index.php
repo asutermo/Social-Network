@@ -9,6 +9,9 @@
 </head>
 
 <body>
+	<div class="logo">
+		<img src="images/WPlogo.png" />
+	</div>
 	<div>
 		<h1>Que te pasa?</h1>
 		<div>

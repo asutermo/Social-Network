@@ -12,6 +12,9 @@
 	<title>Profile Page</title>
 </head>
 <body>
+	<div class="logo">
+		<img src="images/WPlogo.png" />
+	</div>
 	<div>
 		<h1>Welcome to your profile page</h1>
 		<a href="partials/logout.php">Now logout!</a>

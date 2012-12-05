@@ -8,6 +8,9 @@
 	<title>What up homie?</title>
 </head>
 <body>
+	<div class="logo">
+		<img src="images/WPlogo.png" />
+	</div>
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>

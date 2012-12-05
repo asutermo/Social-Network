@@ -13,6 +13,9 @@
 	<title>The Other Site Goers</title>
 </head>
 <body>
+	<div class="logo">
+		<img src="../images/WPlogo.png" />
+	</div>
 	<h1>The Other Site Goers!</h1>
 	<div>
 		<?php

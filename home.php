@@ -12,6 +12,9 @@
 	<title>Home Page</title>
 </head>
 <body>
+	<div class="logo">
+		<img src="images/WPlogo.png" />
+	</div>
 	<div>
 		<h1>You logged in!</h1>
 
