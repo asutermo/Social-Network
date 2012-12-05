@@ -32,7 +32,6 @@
 				echo "<td>".$row["last_name"]."</td>";
 				echo "<td>".$row["profile_pic"]."</td>";
 				echo "</tr>";
-				
 			}
 		echo "</table>";
 		$db->close();
