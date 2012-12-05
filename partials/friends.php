@@ -21,7 +21,7 @@
 		<?php
 			@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
-			$result = $db->query("SELECT * FROM users");
+			$result = $db->query("SELECT * FROM user_friends WHERE user_id='{$_SESSION['user']}'");
 			$count = mysqli_num_rows($result);
 
 			while ($row = $result->fetch_array(MYSQLI_ASSOC)) {

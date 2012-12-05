@@ -16,7 +16,7 @@
 	if ($count != 0) {
 		$user = $result->fetch_assoc();
 		$_SESSION['logged_on'] = true;
-		
+		$_SESSION['user'] = $user['id'];
 		header("Location: ../home.php");
 	}
 	else {
