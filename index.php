@@ -25,7 +25,7 @@
 					echo $_SESSION['failure'];
 		    		$_SESSION['failure'] = "";	
 				}
-				
+
 			?>
 			<form action="partials/login.php" method="POST">
 				<label for="user">Username</label>
