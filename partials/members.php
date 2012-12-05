@@ -12,9 +12,14 @@
 	$count = mysqli_num_rows($result);
 
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-		foreach($row as $value) {
-			echo $value."\n";
-		}
+		echo "<tr>";
+		echo "<td>".$row["username"]." </td>";
+		echo "<td>".$row["first_name"]." </td>";
+		echo "<td>".$row["last_name"]." </td>";
+		echo "<td>".$row["profile_pic"]." </td>";
+		echo "</tr>";
+		echo "<br />";
+		
 	}
 	$db->close();
 ?>
