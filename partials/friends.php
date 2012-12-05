@@ -23,12 +23,12 @@
 
 			$result = $db->query("SELECT * FROM user_friends WHERE user_id='{$_SESSION['user']}'");
 			$count = mysqli_num_rows($result);
-
-			while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-				foreach($row as $value) {
-					echo $value."\n";
+			echo "<table>";
+				while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+					echo "Incomplete: ".$row;
+					
 				}
-			}
+			echo "</table>";
 			$db->close();
 		?>
 	</div>
