@@ -6,8 +6,7 @@
 		header("Location: ../index.php");
 	}
 
-	//$db = new mysqli(localhost, team04, fuchsia, team04);
-	@ $db = new mysqli(localhost, root, '', team04);
+	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	$result = $db->query("SELECT * FROM users");
 	$count = mysqli_num_rows($result);

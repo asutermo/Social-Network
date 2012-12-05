@@ -15,8 +15,7 @@
     	print $key . ": " . $entry . "<br>";
 	}
 
-	@ $db = new mysqli(localhost, root, '', team04);
-	//$db = new mysqli(localhost, team04, fuchsia, team04);
+	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	//check for pre-existing emails
 	$result = $db->query("SELECT * FROM users WHERE email='{$email}'");
