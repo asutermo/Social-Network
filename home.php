@@ -13,9 +13,11 @@
 </head>
 <body>
 	<div>
-		You logged in!
+		<h1>You logged in!</h1>
+
+		<a href="profile.php">View my Profile!</a><br />
+		<a href="partials/friends.php">View my friends</a><br />
+		<a href="partials/members.php">View other members</a><br />
 	</div>
-	<a href="profile.php">Profile!</a>
-	
 </body>
 </html>

@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div>
+		<h1>Welcome to your profile page</h1>
 		<a href="partials/logout.php">Now logout!</a>
 	</div>
 </body>
