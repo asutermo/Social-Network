@@ -4,6 +4,9 @@
 	if (!$_SESSION['logged_on']) {
 		header("Location: index.php");
 	}
+	include("/partials/utilities.php");
+	$user = $_SESSION['user']; 
+	$statuses = retrieveUserStatuses($user);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +20,17 @@
 	?>
 	<div>
 		<h1>Welcome to your profile page</h1>
-		<a href="partials/logout.php">Now logout!</a>
+		<div>
+			<table>
+				<?php
+					foreach ($statuses as $status) {
+						echo "<tr>";
+						echo "<td>".$status["status"]."</td>";
+						echo "</tr>";
+					}
+				?>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
