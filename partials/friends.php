@@ -21,7 +21,7 @@
 		}
 		
 	}
-	if (isset($_GET['remove'])) {
+	/*if (isset($_GET['remove'])) {
 		$friend = $_GET['remove'];
 		if (alreadyFriends($user, $friend)) {
 			deleteFriend($user, $friend);
@@ -31,7 +31,7 @@
 			echo "I'm sure they're unhappy you've tried to remove this person them more than once";	
 		}
 		
-	}
+	}*/
 	$friends_list = retrieveFriends($user);
 ?>
 

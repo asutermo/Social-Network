@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	if (isset($_SESSION['logged_on']) && $_SESSION['logged_on'] = true) {
-		header("Location: home.php");
-	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,8 +11,8 @@
 <body>
 	<div class="logo">
 		<img src="images/WPlogo.png" />
-	</div>
-	<div>
+	</div
+>	<div>
 		<h1>Que te pasa?</h1>
 		<div>
 			<form action="newuser.php" method="GET">

@@ -8,7 +8,6 @@ Remaining Tasks:
 
 Signup validation
 Prevent SQL injection
-Friend deletion
 Friend search
 	search entire db by name/email. show thumbnails
 Profile 

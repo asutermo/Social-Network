@@ -6,7 +6,7 @@
 	$firstname = strip_tags($_POST['first']);
 	$lastname = strip_tags($_POST['last']);
 	$password = strip_tags($_POST['password']);
-	$profilepic = strip_tags($_POST['image']);
+	$profilepic = strip_tags(file_get_contents($_FILE['image']['temp']));
 	$gender = strip_tags($_POST['gender']);
 	$age = strip_tags($_POST['age']);
 	$other = strip_tags($_POST['other']);
@@ -30,7 +30,6 @@
 		$stmt = $db->prepare("INSERT INTO users (username, first_name, last_name, email, password, profile_pic, gender, age, other) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
 		$stmt->execute();
-
 		$_SESSION['logged_on'] = true;
 		$_SESSION['username'] = $username;
 		$_SESSION['user_id'] = $user['user_id'];

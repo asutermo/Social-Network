@@ -19,7 +19,6 @@
 			$db->close();
 			return false;	
 		}
-			
 	}
 
 	function deleteFriend($user, $friend) {

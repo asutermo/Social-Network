@@ -8,6 +8,7 @@
 
 	$username = strip_tags($_POST['user']);
 	$password = md5(strip_tags($_POST['password']));
+
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	$result = $db->query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
