@@ -10,18 +10,6 @@ CREATE TABLE `user_friends` (
 LOCK TABLES `user_friends` WRITE;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `user_statuses`;
-CREATE TABLE `user_statuses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `user_statuses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `user_statuses` WRITE;
-UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -39,4 +27,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 LOCK TABLES `users` WRITE;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `user_statuses`;
+CREATE TABLE `user_statuses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_statuses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ALTER TABLE `team04`.`user_statuses` ADD COLUMN `post_date` DATETIME NULL  AFTER `status` ;
+LOCK TABLES `user_statuses` WRITE;
 UNLOCK TABLES;
