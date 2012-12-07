@@ -1,3 +1,4 @@
+
 CREATE DATABASE  IF NOT EXISTS `team04`;
 USE `team04`;
 

@@ -3,20 +3,27 @@
 	
 	function addFriend($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		echo "User ID: ".$user." Friend ID: ".$friend;
 		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES ($user, $friend);");
-		echo $db->error;
-		echo $result;
 		$db->close();
 	}
 
 	function alreadyFriends($user, $friend) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("SELECT * FROM user_friends WHERE  user_friends.user_id = {$user} AND user_friends.friend_id = {$friend};");
+		$count = mysqli_num_rows($result);
+		if ($count != 0)
+			return true;
+		else
+			return false;
+	}
 
+	function deleteFriend($user, $friend) {
+		
 	}
 
 	function retrieveFriends($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("SELECT * FROM user_friends where  user_friends.user_id = {$user};");
+		$result = $db->query("SELECT * FROM user_friends LEFT JOIN users on (user_friends.user_id = {$user}) WHERE friend_id = id;");
 		$count = mysqli_num_rows($result);
 		$friends_list = array();
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -28,7 +35,7 @@
 
 	function retrieveMembers($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("SELECT * FROM users where id != $user");
+		$result = $db->query("SELECT * FROM users WHERE id != $user");
 		$count = mysqli_num_rows($result);
 		$members_list = array();
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -37,4 +44,6 @@
 		$db->close();
 		return $members_list;
 	}
+
+
 ?>
