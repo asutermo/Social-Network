@@ -2,6 +2,7 @@
 	session_start();
 
 
+	include("../partials/utilities.php");
 	
 	//if user is not logged in
 	if(!$_SESSION['logged_on']) {
@@ -11,10 +12,8 @@
 	$user = $_SESSION['user']; 
 	if (isset($_GET['add'])) {
 		$friend = $_GET['add'];
+		addFriend($user, $friend);
 	}
-	include("../partials/utilities.php");
-
-	//addFriend($user, $friend);
 	$friends_list = retrieveFriends($user);
 ?>
 

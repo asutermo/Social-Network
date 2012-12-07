@@ -3,7 +3,9 @@
 	
 	function addFriend($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES {$user}, {$friend};");
+		echo "User ID: ".$user." Friend ID: ".$friend;
+		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES ($user, $friend);");
+		echo $db->error;
 		echo $result;
 		$db->close();
 	}
