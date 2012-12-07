@@ -9,10 +9,13 @@
 	}
 
 	$user = $_SESSION['user']; 
+	if (isset($_GET['add'])) {
+		$friend = $_GET['add'];
+	}
 	include("../partials/utilities.php");
-	$user = $_SESSION['user']; 
-	$friends_list = retrieveFriends($user);
 
+	//addFriend($user, $friend);
+	$friends_list = retrieveFriends($user);
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +32,11 @@
 		<?php
 			foreach ($friends_list as $friend) {
 				echo "<tr>";
-				echo "<td>".$friend["profile_pic"]."</td>";
+				echo "<td>".$friend["friend_id"]."</td>";
+				/*echo "<td>".$friend["profile_pic"]."</td>";
 				echo "<td>".$friend["username"]."</td>";
 				echo "<td>".$friend["first_name"]."</td>";
-				echo "<td>".$friend["last_name"]."</td>";
+				echo "<td>".$friend["last_name"]."</td>";*/
 				echo "</tr>";
 			}	
 		?>
