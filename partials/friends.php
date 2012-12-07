@@ -13,9 +13,9 @@
 	<title>Muh Friends</title>
 </head>
 <body>
-	<div class="logo">
-		<img src="../images/WPlogo.png" />
-	</div>
+	<?php
+		include("../partials/menu.php");
+	?>
 	<h1>Muh Friends!</h1>
 	<div>
 		<?php
