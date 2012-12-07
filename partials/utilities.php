@@ -11,14 +11,21 @@
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("SELECT * FROM user_friends WHERE  user_friends.user_id = {$user} AND user_friends.friend_id = {$friend};");
 		$count = mysqli_num_rows($result);
-		if ($count != 0)
+		if ($count != 0) {
+			$db->close();
 			return true;
-		else
-			return false;
+		}
+		else {
+			$db->close();
+			return false;	
+		}
+			
 	}
 
 	function deleteFriend($user, $friend) {
-		
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("DELETE FROM user_friends WHERE user_friends.user_id = {$user} AND user_friends.friend_id = {$friend};");
+		$db->close();
 	}
 
 	function retrieveFriends($user) {

@@ -13,7 +13,7 @@
 	if (isset($_GET['add'])) {
 		$friend = $_GET['add'];
 		if (alreadyFriends($user, $friend)) {
-			echo "I'm sure they're happy you've tried to add Friend ID: ".$friend." them more than once";
+			echo "I'm sure they're happy you've tried to add this friend more than once";
 		}
 		else {
 			addFriend($user, $friend);
@@ -28,7 +28,7 @@
 			header('Location: friends.php');
 		}
 		else {
-			echo "I'm sure they're unhappy you've tried to remove Friend ID: ".$friend." them more than once";	
+			echo "I'm sure they're unhappy you've tried to remove this person them more than once";	
 		}
 		
 	}
@@ -46,7 +46,7 @@
 	?>
 	<h1>Muh Friends!</h1>
 	<div>
-		<table>
+		<table id="friends">
 			<tr>
 				<th>Profile Photo</th>
 				<th>Username</th>
@@ -60,7 +60,7 @@
 					echo "<td>".$friend["username"]."</td>";
 					echo "<td>".$friend["first_name"]."</td>";
 					echo "<td>".$friend["last_name"]."</td>";
-					echo "<td><a href=\"friends.php?add=".$friend['id']."\">Remove Friend</a></td>\n";
+					echo "<td><a href=\"friends.php?remove=".$friend['id']."\">Remove Friend</a></td>\n";
 					echo "</tr>";
 				}	
 			?>
