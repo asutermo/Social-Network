@@ -21,6 +21,17 @@
 		}
 		
 	}
+	if (isset($_GET['remove'])) {
+		$friend = $_GET['remove'];
+		if (alreadyFriends($user, $friend)) {
+			deleteFriend($user, $friend);
+			header('Location: friends.php');
+		}
+		else {
+			echo "I'm sure they're unhappy you've tried to remove Friend ID: ".$friend." them more than once";	
+		}
+		
+	}
 	$friends_list = retrieveFriends($user);
 ?>
 
@@ -49,6 +60,7 @@
 					echo "<td>".$friend["username"]."</td>";
 					echo "<td>".$friend["first_name"]."</td>";
 					echo "<td>".$friend["last_name"]."</td>";
+					echo "<td><a href=\"friends.php?add=".$friend['id']."\">Remove Friend</a></td>\n";
 					echo "</tr>";
 				}	
 			?>
