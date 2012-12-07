@@ -1,10 +1,19 @@
 <?php
 	session_start();
 
+
+	
 	//if user is not logged in
 	if(!$_SESSION['logged_on']) {
 		header("Location: ../index.php");
 	}
+
+	$user = $_SESSION['user']; 
+
+	function retrieveFriends($user) {
+
+	}
+
 ?>
 
 <!DOCTYPE html>
