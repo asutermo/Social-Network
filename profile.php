@@ -6,7 +6,15 @@
 	}
 	include("/partials/utilities.php");
 	$user = $_SESSION['user']; 
-	$statuses = retrieveUserStatuses($user);
+
+	if (isset($_GET['profile']) && $user != $_GET['profile']) {
+		$profileid = $_GET['profile'];
+		$statuses = retrieveUserStatuses($profileid);
+	} 
+	else {
+		$statuses = retrieveUserStatuses($user);
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +29,7 @@
 	<div>
 		<h1>Welcome to your profile page</h1>
 		<div>
-			<table>
+			<table id="statuses">
 				<?php
 					foreach ($statuses as $status) {
 						echo "<tr>";
