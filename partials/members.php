@@ -1,8 +1,6 @@
 <?php
 	session_start();
 
-	
-
 	if(!$_SESSION['logged_on']) {
 		header("Location: ../index.php");
 	}
@@ -37,6 +35,7 @@
 					echo "<td>".$member["username"]."</td>";
 					echo "<td>".$member["first_name"]."</td>";
 					echo "<td>".$member["last_name"]."</td>";
+					echo "<td><a href=\"friends.php?add=".$member['id']."\">Add Friend</a></td>\n";
 					echo "</tr>";
 				}	
 			?>

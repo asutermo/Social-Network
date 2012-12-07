@@ -1,8 +1,23 @@
 <?php
-	$user = $_SESSION['user']; 
 	
-	function addFriends($user) {
+	
+	function addFriends($user, $friend) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES {$user}, {$friend};");
+		echo $result;
+		$db->close();
+	}
 
+	function retrieveFriends($user) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("SELECT * FROM user_friends, users where {$user} = user_friends.user_id");
+		$count = mysqli_num_rows($result);
+		$friends_list = array();
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+			array_push($friends_list, $row);
+		}
+		$db->close();
+		return $friends_list;	
 	}
 
 	function retrieveMembers($user) {

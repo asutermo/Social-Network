@@ -9,10 +9,9 @@
 	}
 
 	$user = $_SESSION['user']; 
-
-	function retrieveFriends($user) {
-
-	}
+	include("../partials/utilities.php");
+	$user = $_SESSION['user']; 
+	$friends_list = retrieveFriends($user);
 
 ?>
 
@@ -28,17 +27,14 @@
 	<h1>Muh Friends!</h1>
 	<div>
 		<?php
-			@ $db = new mysqli(localhost, team04, fuchsia, team04);
-
-			$result = $db->query("SELECT * FROM user_friends WHERE user_id='{$_SESSION['user']}'");
-			$count = mysqli_num_rows($result);
-			echo "<table>";
-				while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-					echo "Incomplete: ".$row;
-					
-				}
-			echo "</table>";
-			$db->close();
+			foreach ($friends_list as $friend) {
+				echo "<tr>";
+				echo "<td>".$friend["profile_pic"]."</td>";
+				echo "<td>".$friend["username"]."</td>";
+				echo "<td>".$friend["first_name"]."</td>";
+				echo "<td>".$friend["last_name"]."</td>";
+				echo "</tr>";
+			}	
 		?>
 	</div>
 </body>
