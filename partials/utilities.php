@@ -72,11 +72,11 @@
 		return $statuses;
 	}
 
-	/*function retrieveUserAndFriendStatuses($user) {
+	function retrieveUserAndFriendStatuses($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("SELECT * FROM user_friends WHERE  user_friends.user_id = {$user} AND user_friends.friend_id = {$friend};");
 		$count = mysqli_num_rows($result);
 		
-	}*/
+	}
 
 ?>

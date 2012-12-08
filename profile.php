@@ -7,9 +7,12 @@
 	include("/partials/utilities.php");
 	$user = $_SESSION['user']; 
 
+	$showCurrentProfile = true;
+
 	if (isset($_GET['profile']) && $user != $_GET['profile']) {
 		$profileid = $_GET['profile'];
 		$statuses = retrieveUserStatuses($profileid);
+		$showCurrentProfile = false;
 	} 
 	else {
 		$statuses = retrieveUserStatuses($user);
@@ -27,17 +30,31 @@
 		include("partials/menu.php");
 	?>
 	<div>
-		<h1>Welcome to your profile page</h1>
+		<?php
+			if (isset($showCurrentProfile) && $showCurrentProfile) {
+				echo "<h1>Welcome to your profile page</h1>\n";
+			}
+			else {
+				echo "<h1>Other user's profile page</h1>\n";	
+			}
+		?>
 		<div>
-			<form action="partials/status.php" method="POST">
-				<label for="status">Post a Status</label>
-				<input type="text" name="status" id="status"/>
-				<input type="submit" value="Submit Status"/>
-			</form>
-
-			<br />
-			<br />
-			<h3>Your last statuses</h3>
+			<?php
+				if (isset($showCurrentProfile) && $showCurrentProfile) {
+					echo "<form action=\"partials/status.php\" method=\"POST\">\n"; 
+					echo "<label for=\"status\">Post a Status</label>\n"; 
+					echo "<input type=\"text\" name=\"status\" id=\"status\"/>\n"; 
+					echo "<input type=\"submit\" value=\"Submit Status\"/>\n"; 
+					echo "</form>\n"; 
+					echo "<br />\n"; 
+					echo "<h3>Your last statuses</h3>\n";
+				}
+				else {
+					echo "<h3>Other user's last statuses</h3>\n";	
+				}
+			?>
+			
+			
 			<table id="statuses">
 				<?php
 					foreach ($statuses as $status) {
