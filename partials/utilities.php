@@ -1,12 +1,13 @@
 <?php
 	
-	
+	//Friend utilities
 	function addFriend($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES ($user, $friend);");
 		$db->close();
 	}
 
+	
 	function alreadyFriends($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("SELECT * FROM user_friends WHERE  user_friends.user_id = {$user} AND user_friends.friend_id = {$friend};");
@@ -39,6 +40,7 @@
 		return $friends_list;	
 	}
 
+	//Member utilities
 	function retrieveMembers($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("SELECT * FROM users WHERE id != $user");
@@ -49,6 +51,13 @@
 		}
 		$db->close();
 		return $members_list;
+	}
+
+	//Status utilities
+	function addStatus($user, $status) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("INSERT INTO user_statuses(user_id, status, post_date) VALUES ($user, $status, CURDATE());");
+		$db->close();	
 	}
 
 	function retrieveUserStatuses($user) {
