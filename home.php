@@ -4,6 +4,9 @@
 	if (!$_SESSION['logged_on']) {
 		header("Location: index.php");
 	}
+	include("/partials/utilities.php");
+	$user = $_SESSION['user'];
+	$statuses = retrieveUserAndFriendStatuses($user);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,18 @@
 		include("partials/menu.php");
 	?>
 	<div>
-		
+		<h1>Welcome to your news feed</h1>
+		<div>
+			<table id="statuses">
+				<?php
+					foreach ($statuses as $status) {
+						echo "<tr>";
+						echo "<td>".$status["status"]."</td>";
+						echo "</tr>";
+					}
+				?>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

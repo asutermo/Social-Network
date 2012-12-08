@@ -17,7 +17,6 @@
 	else {
 		$statuses = retrieveUserStatuses($user);
 	}
-	
 ?>
 
 <!DOCTYPE html>
