@@ -74,7 +74,7 @@
 
 	function retrieveUserAndFriendStatuses($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("SELECT * FROM user_statuses");
+		$result = $db->query("SELECT * FROM user_statuses ORDER BY post_date LIMIT 20");
 		$count = mysqli_num_rows($result);
 		$statuses = array();
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
