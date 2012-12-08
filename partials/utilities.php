@@ -56,7 +56,7 @@
 	//Status utilities
 	function addStatus($user, $status) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("INSERT INTO user_statuses(user_id, status, post_date) VALUES ($user, \"$status\", CURDATE());");
+		$result = $db->query("INSERT INTO user_statuses(user_id, status, post_date) VALUES ($user, \"$status\", NOW());");
 		$db->close();	
 	}
 
