@@ -3,16 +3,19 @@
 </div>
 <ul>
 	<li>
-		<a href="../home.php">Teh n00s f33d</a>
+		<a href="../home.php">News Feed</a>
 	</li>
 	<li>
-		<a href="../profile.php">Check me out</a>
+		<a href="../profile.php">Me</a>
 	</li>
 	<li>
 		<a href="../partials/friends.php">View Friends</a>
 	</li>
 	<li>
 		<a href="../partials/members.php">Find Members</a>
+	</li>
+	<li>
+		<a href="../partials/edit.php">Edit Me</a>
 	</li>
 	<li>
 		<a href="../partials/logout.php">Sign out</a>
