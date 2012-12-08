@@ -29,6 +29,15 @@
 	<div>
 		<h1>Welcome to your profile page</h1>
 		<div>
+			<form action="partials/status.php" method="POST">
+				<label for="status">Post a Status</label>
+				<input type="text" name="status" id="status"/>
+				<input type="submit" value="Submit Status"/>
+			</form>
+
+			<br />
+			<br />
+			<h3>Your last statuses</h3>
 			<table id="statuses">
 				<?php
 					foreach ($statuses as $status) {
