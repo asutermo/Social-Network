@@ -21,9 +21,9 @@
 			<br />
 			<br />
 			<?php
-				if (isset($_SESSION['failure'])) {
-					echo $_SESSION['failure'];
-		    		$_SESSION['failure'] = "";	
+				if (isset($_SESSION['error'])) {
+					echo $_SESSION['error'];
+		    		$_SESSION['error'] = "";	
 				}
 
 			?>

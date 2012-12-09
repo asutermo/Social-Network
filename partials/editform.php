@@ -35,7 +35,7 @@
 						echo "<input type=\"text\" name=\"last\" id=\"last\" value=\"".$user_information["last_name"]."\"/>\n"; 
 						echo "<br />\n"; 
 						echo "<label for=\"image\">Upload Image</label>\n"; 
-						echo "<input type=\"file\" name=\"image\" id=\"image\"/>\n"; 
+						echo "<input type=\"file\" name=\"image\" id=\"image\" accept=\"image/*\"/>\n"; 
 						echo "<br />\n"; 
 						echo "<label for=\"age\">Age</label>\n"; 
 						echo "<input type=\"number\" name=\"age\" id=\"age\" min=\"13\" max=\"150\"  value=\"".$user_information["age"]."\"/>\n"; 

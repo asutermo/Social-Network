@@ -6,15 +6,17 @@
 	$firstname = stripslashes($_POST['first']);
 	$lastname = stripslashes($_POST['last']);
 	$password = stripslashes($_POST['password']);
-	$profilepic = stripslashes($_POST['image']);
 	$gender = stripslashes($_POST['gender']);
 	$age = stripslashes($_POST['age']);
 	$other = stripslashes($_POST['other']);
-	foreach ($_POST as $key => $entry)
-	{
-    	print $key . ": " . $entry . "<br>";
-	}
 
+	//retrieve image, read file to prep for insertion into db
+	$profilepic = $_FILES['image']['tmp_name'];
+	$fp = fopen($profilepic, 'r');
+	$store = fread($fp, filesize($profilepic));
+	$store = addslashes($store);
+	fclose($fp);
+	
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	//check for pre-existing emails

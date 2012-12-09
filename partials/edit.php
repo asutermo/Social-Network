@@ -11,14 +11,17 @@
 	$username = stripslashes($_POST['user']);
 	$firstname = stripslashes($_POST['first']);
 	$lastname = stripslashes($_POST['last']);
-	$profilepic = stripslashes($_POST['image']);
 	$age = stripslashes($_POST['age']);
 	$other = stripslashes($_POST['other']);
-	foreach ($_POST as $key => $entry)
-	{
-    	print $key . ": " . $entry . "<br>";
-	}
 
+
+	//retrieve image, read file to prep for insertion into db
+	$profilepic = $_FILES['image']['tmp_name'];
+	$fp = fopen($profilepic, 'r');
+	$store = fread($fp, filesize($profilepic));
+	$store = addslashes($store);
+	fclose($fp);
+	
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 	$result = $db->query("UPDATE `users` SET username ='$username', first_name = '$firstname' , last_name= '$lastname' , profile_pic= '$profilepic' , age= '$age' , other= '$other' WHERE id = $user;");
 	
