@@ -1,15 +1,15 @@
 <?php
 	session_start();
 
-	$username = mysql_real_escape_string(stripslashes($_POST['user']);
-	$email = mysql_real_escape_string(stripslashes($_POST['email']);
-	$firstname = mysql_real_escape_string(stripslashes($_POST['first']);
-	$lastname = mysql_real_escape_string(stripslashes($_POST['last']);
-	$password = mysql_real_escape_string(stripslashes($_POST['password']);
-	$profilepic = mysql_real_escape_string(stripslashes($_POST['image']);
-	$gender = mysql_real_escape_string(stripslashes($_POST['gender']);
-	$age = mysql_real_escape_string(stripslashes($_POST['age']);
-	$other = mysql_real_escape_string(stripslashes($_POST['other']);
+	$username = stripslashes($_POST['user']);
+	$email = stripslashes($_POST['email']);
+	$firstname = stripslashes($_POST['first']);
+	$lastname = stripslashes($_POST['last']);
+	$password = stripslashes($_POST['password']);
+	$profilepic = stripslashes($_POST['image']);
+	$gender = stripslashes($_POST['gender']);
+	$age = stripslashes($_POST['age']);
+	$other = stripslashes($_POST['other']);
 	foreach ($_POST as $key => $entry)
 	{
     	print $key . ": " . $entry . "<br>";

@@ -37,7 +37,7 @@
 							echo "<td>You</td>";	
 						}
 						$date = strtotime($status["post_date"]); 
-						echo "<td>".date("Y-m-d H:i", $date)."</td>";
+						echo "<td>".date("m-d H:i", $date)."</td>";
 						echo "<td>".$status["status"]."</td>";
 						echo "</tr>";
 					}

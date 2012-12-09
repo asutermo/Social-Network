@@ -6,8 +6,8 @@
 		header("Location: ../index.php");
 	}
 
-	$username = mysql_real_escape_string(stripslashes($_POST['user']);
-	$password = md5(mysql_real_escape_string(stripslashes($_POST['password']));
+	$username = stripslashes($_POST['user']);
+	$password = md5(stripslashes($_POST['password']));
 
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
