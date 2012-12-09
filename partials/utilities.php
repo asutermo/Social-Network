@@ -113,9 +113,11 @@
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$search = stripslashes($search);
 		$result = $db->query("SELECT *  FROM users WHERE  (`email` LIKE '%".$search."%') OR  (`first_name` LIKE '%".$search."%')  OR  (`last_name` LIKE '%".$search."%')  OR  (`username` LIKE '%".$search."%');");
-		$user_info = array();
-		array_push($user_info, $result->fetch_array(MYSQLI_ASSOC));
-		return $user_info;
+		$searchresults = array();
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+			array_push($searchresults, $row);
+		}
+		return $searchresults;
 	}
 
 ?>

@@ -44,7 +44,8 @@
 				if (isset($search_list)) {
 					foreach ($search_list as $search) {
 						echo "<tr>\n";
-						echo "<td>".$search["profile_pic"]."</td>\n";
+						echo "<td></td>";
+						//echo "<td>".$search["profile_pic"]."</td>\n";
 						echo "<td>".$search["username"]."</td>\n";
 						echo "<td>".$search["first_name"]."</td>\n";
 						echo "<td>".$search["last_name"]."</td>\n";
