@@ -21,9 +21,10 @@
 	$store = fread($fp, filesize($profilepic));
 	$store = addslashes($store);
 	fclose($fp);
-	
+	$encoded = chunk_split(base64_encode($store)); 
+
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
-	$result = $db->query("UPDATE `users` SET username ='$username', first_name = '$firstname' , last_name= '$lastname' , profile_pic= '$profilepic' , age= '$age' , other= '$other' WHERE id = $user;");
+	$result = $db->query("UPDATE `users` SET username ='$username', first_name = '$firstname', last_name= '$lastname' , profile_pic= '$profilepic' , age= '$age' , other= '$other' WHERE id = $user;");
 	
 	$db->close();
 
