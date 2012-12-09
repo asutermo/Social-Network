@@ -91,10 +91,7 @@
 		return $statuses;
 	}
 
-	//edit utility
-	function editUserInformation($user) {
-
-	}
+	
 
 	//Profile utility
 	function getUserInformation($user) {

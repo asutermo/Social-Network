@@ -1,15 +1,15 @@
 <?php
 	session_start();
 
-	$username = strip_tags($_POST['user']);
-	$email = strip_tags($_POST['email']);
-	$firstname = strip_tags($_POST['first']);
-	$lastname = strip_tags($_POST['last']);
-	$password = strip_tags($_POST['password']);
-	$profilepic = strip_tags($_POST['image']);
-	$gender = strip_tags($_POST['gender']);
-	$age = strip_tags($_POST['age']);
-	$other = strip_tags($_POST['other']);
+	$username = mysql_real_escape_string(stripslashes($_POST['user']);
+	$email = mysql_real_escape_string(stripslashes($_POST['email']);
+	$firstname = mysql_real_escape_string(stripslashes($_POST['first']);
+	$lastname = mysql_real_escape_string(stripslashes($_POST['last']);
+	$password = mysql_real_escape_string(stripslashes($_POST['password']);
+	$profilepic = mysql_real_escape_string(stripslashes($_POST['image']);
+	$gender = mysql_real_escape_string(stripslashes($_POST['gender']);
+	$age = mysql_real_escape_string(stripslashes($_POST['age']);
+	$other = mysql_real_escape_string(stripslashes($_POST['other']);
 	foreach ($_POST as $key => $entry)
 	{
     	print $key . ": " . $entry . "<br>";

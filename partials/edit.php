@@ -8,12 +8,12 @@
 	include("../partials/utilities.php");
 
 	$user = $_SESSION['user']; 
-	$username = strip_tags($_POST['user']);
-	$firstname = strip_tags($_POST['first']);
-	$lastname = strip_tags($_POST['last']);
-	$profilepic = strip_tags($_POST['image']);
-	$age = strip_tags($_POST['age']);
-	$other = strip_tags($_POST['other']);
+	$username = mysql_real_escape_string(stripslashes($_POST['user']);
+	$firstname = mysql_real_escape_string(stripslashes($_POST['first']);
+	$lastname = mysql_real_escape_string(stripslashes($_POST['last']);
+	$profilepic = mysql_real_escape_string(stripslashes($_POST['image']);
+	$age = mysql_real_escape_string(stripslashes($_POST['age']);
+	$other = mysql_real_escape_string(stripslashes($_POST['other']);
 	foreach ($_POST as $key => $entry)
 	{
     	print $key . ": " . $entry . "<br>";
