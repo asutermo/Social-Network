@@ -14,17 +14,16 @@
 	$profilepic = strip_tags($_POST['image']);
 	$age = strip_tags($_POST['age']);
 	$other = strip_tags($_POST['other']);
-	echo $user;
 	foreach ($_POST as $key => $entry)
 	{
     	print $key . ": " . $entry . "<br>";
 	}
 
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
-	$result = $db->query("UPDATE users SET username=$username AND first_name=$firstname AND last_name=$lastname AND profile_pic=$profilepic AND age=$age AND other=$other WHERE id = {$user};");
-	echo $result;
+	$result = $db->query("UPDATE `users` SET username ='$username', first_name = '$firstname' , last_name= '$lastname' , profile_pic= '$profilepic' , age= '$age' , other= '$other' WHERE id = $user;");
+	
 	$db->close();
 
-	//header("Location: ../profile.php");
+	header("Location: ../profile.php");
 
 ?>
