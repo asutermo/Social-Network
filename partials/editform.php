@@ -22,7 +22,7 @@
 	<div>
 		<h1>Edit profile?</h1>
 		<div>
-			<form action="../partials/edit.php" method="POST" onsubmit="return validate_signup(this)">
+			<form action="../partials/edit.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this)">
 				<?php
 					foreach ($user_info as $user_information) {
 						echo "<label for=\"user\">Username</label>\n"; 

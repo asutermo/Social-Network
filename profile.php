@@ -76,7 +76,7 @@
 					foreach ($statuses as $status) {
 						echo "<tr>";
 						$date = strtotime($status["post_date"]); 
-						echo "<td>".date("Y-m-d H:i", $date)."</td>";
+						echo "<td>".date("D, d M y g:i a", $date)."</td>";
 						echo "<td>".$status["status"]."</td>";
 						echo "</tr>";
 					}

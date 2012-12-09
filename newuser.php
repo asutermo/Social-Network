@@ -14,7 +14,7 @@
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>
-			<form action="partials/signup.php" method="POST" onsubmit="return validate_signup(this)">
+			<form action="partials/signup.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this)">
 				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />
@@ -34,7 +34,7 @@
 				<input type="password" name="rpassword" id="rpassword"/>
 				<br />
 				<label for="image">Upload Image</label>
-				<input type="file" name="image" id="image"/>
+				<input type="file" name="image" id="image" accept="image/jpeg;image/png;image/gif"/>
 				<br />
 				<label for="gender">Gender</label>
 				<select name="gender" id="gender">
