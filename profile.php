@@ -9,13 +9,17 @@
 
 	$showCurrentProfile = true;
 
+	$user_info = array();
 	if (isset($_GET['profile']) && $user != $_GET['profile']) {
 		$profileid = $_GET['profile'];
 		$statuses = retrieveUserStatuses($profileid);
 		$showCurrentProfile = false;
+		$user_info = getUserInformation($profileid);
 	} 
 	else {
 		$statuses = retrieveUserStatuses($user);
+		$user_info = getUserInformation($user);
+		//echo $user_info;
 	}
 ?>
 
@@ -32,11 +36,28 @@
 		<?php
 			if (isset($showCurrentProfile) && $showCurrentProfile) {
 				echo "<h1>Welcome to your profile page</h1>\n";
+				echo "<td><a href=\"partials/edit.php\">Edit Profile</a></td>\n";
+					
 			}
 			else {
 				echo "<h1>Other user's profile page</h1>\n";	
 			}
 		?>
+		<div id="profile_info">
+			<?php
+				foreach ($user_info as $user_information) {
+
+					echo "<span>Username: ".$user_information["username"]."</span><br />";
+					echo "<span>Name: ".$user_information["first_name"]." ".$user_information["last_name"]."</span><br />";
+					echo "<span>Age: ".$user_information["age"]."</span><br />";
+					echo "<span>Gender: ".$user_information["gender"]."</span><br />";
+					echo "<span>Other Information: ".$user_information["other"]."</span><br />";
+					echo "<br />";
+
+				}
+				
+			?>
+		</div>
 		<div>
 			<?php
 				if (isset($showCurrentProfile) && $showCurrentProfile) {
@@ -52,6 +73,7 @@
 					echo "<h3>Other user's last statuses</h3>\n";	
 				}
 			?>
+			
 			
 			
 			<table id="statuses">

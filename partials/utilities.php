@@ -74,6 +74,13 @@
 
 	function retrieveUserAndFriendStatuses($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+
+		//$query = "SELECT users.id, user_"
+		//$result = $db->query($query);
+
+		//SELECT * FROM user_friends LEFT JOIN users on (user_friends.user_id = {$user}) WHERE friend_id = id
+		
+		//not finished yet - shows all users
 		$result = $db->query("SELECT * FROM user_statuses ORDER BY post_date LIMIT 20");
 		$count = mysqli_num_rows($result);
 		$statuses = array();
@@ -82,6 +89,20 @@
 		}
 		$db->close();
 		return $statuses;
+	}
+
+	//edit utility
+	function editUserInformation($user) {
+
+	}
+
+	//Profile utility
+	function getUserInformation($user) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$result = $db->query("SELECT username, first_name, last_name, profile_pic, gender, age, other  FROM users WHERE  id = {$user};");
+		$user_info = array();
+		array_push($user_info, $result->fetch_array(MYSQLI_ASSOC));
+		return $user_info;
 	}
 
 ?>
