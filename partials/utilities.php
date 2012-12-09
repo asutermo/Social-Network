@@ -100,12 +100,19 @@
 		return ($dateA - $dateB);
 	}
 
-	
-
 	//Profile utility
 	function getUserInformation($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$result = $db->query("SELECT username, first_name, last_name, profile_pic, gender, age, other  FROM users WHERE  id = {$user};");
+		$user_info = array();
+		array_push($user_info, $result->fetch_array(MYSQLI_ASSOC));
+		return $user_info;
+	}
+
+	function searchForUser($search) {
+		@ $db = new mysqli(localhost, team04, fuchsia, team04);
+		$search = stripslashes($search);
+		$result = $db->query("SELECT *  FROM users WHERE  (`email` LIKE '%".$search."%') OR  (`first_name` LIKE '%".$search."%')  OR  (`last_name` LIKE '%".$search."%')  OR  (`username` LIKE '%".$search."%');");
 		$user_info = array();
 		array_push($user_info, $result->fetch_array(MYSQLI_ASSOC));
 		return $user_info;

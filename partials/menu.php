@@ -15,6 +15,9 @@
 		<a href="../partials/members.php">Find Members</a>
 	</li>
 	<li>
+		<a href="../partials/search.php">Search for Friends</a>
+	</li>
+	<li>
 		<a href="../partials/edit.php">Edit Me</a>
 	</li>
 	<li>
