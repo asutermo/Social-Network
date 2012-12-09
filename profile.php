@@ -19,7 +19,6 @@
 	else {
 		$statuses = retrieveUserStatuses($user);
 		$user_info = getUserInformation($user);
-		//echo $user_info;
 	}
 ?>
 
@@ -36,8 +35,7 @@
 		<?php
 			if (isset($showCurrentProfile) && $showCurrentProfile) {
 				echo "<h1>Welcome to your profile page</h1>\n";
-				echo "<td><a href=\"partials/edit.php\">Edit Profile</a></td>\n";
-					
+				echo "<td><a href=\"partials/editform.php\">Edit Profile</a></td>\n";
 			}
 			else {
 				echo "<h1>Other user's profile page</h1>\n";	
@@ -46,14 +44,12 @@
 		<div id="profile_info">
 			<?php
 				foreach ($user_info as $user_information) {
-
 					echo "<span>Username: ".$user_information["username"]."</span><br />";
 					echo "<span>Name: ".$user_information["first_name"]." ".$user_information["last_name"]."</span><br />";
 					echo "<span>Age: ".$user_information["age"]."</span><br />";
 					echo "<span>Gender: ".$user_information["gender"]."</span><br />";
 					echo "<span>Other Information: ".$user_information["other"]."</span><br />";
 					echo "<br />";
-
 				}
 				
 			?>
@@ -73,7 +69,6 @@
 					echo "<h3>Other user's last statuses</h3>\n";	
 				}
 			?>
-			
 			
 			
 			<table id="statuses">
