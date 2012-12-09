@@ -1,5 +1,5 @@
 <div class="logo">
-	<img src="../images/WPlogo.png" />
+	<img src="../images/WPlogo.png" alt="logo"/>
 </div>
 <ul>
 	<li>

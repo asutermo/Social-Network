@@ -14,9 +14,9 @@
 
 <body>
 	<div class="logo">
-		<img src="images/WPlogo.png" />
-	</div
->	<div>
+		<img src="images/WPlogo.png" alt="logo" />
+	</div>
+	<div>
 		<h1>Que te pasa?</h1>
 		<div>
 			<form action="newuser.php" method="GET">

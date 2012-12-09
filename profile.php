@@ -35,7 +35,7 @@
 		<?php
 			if (isset($showCurrentProfile) && $showCurrentProfile) {
 				echo "<h1>Welcome to your profile page</h1>\n";
-				echo "<td><a href=\"partials/editform.php\">Edit Profile</a></td>\n";
+				echo "<a href=\"partials/editform.php\">Edit Profile</a>\n";
 			}
 			else {
 				echo "<h1>Other user's profile page</h1>\n";	
@@ -45,8 +45,7 @@
 			<?php
 				foreach ($user_info as $user_information) {
 					echo "<span>Username: ".$user_information["username"]."</span><br />\n";
-					echo "<img src='",$user_information['profile_pic'],"' width='175' height='200' /><br />\n";
-					echo "<span>Username: ".$user_information["username"]."</span><br />";
+					//echo "<img src='",$user_information['profile_pic'],"' width='175' height='200' /><br />\n";
 					echo "<span>Name: ".$user_information["first_name"]." ".$user_information["last_name"]."</span><br />\n";
 					echo "<span>Age: ".$user_information["age"]."</span><br />\n";
 					echo "<span>Gender: ".$user_information["gender"]."</span><br />\n";
