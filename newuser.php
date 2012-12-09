@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script language="JavaScript" src="validator.js"></script>
+    <script type="text/javascript" src="scripts/validator.js"></script>
 	<title>What up homie?</title>
 </head>
 <body>
 	<div class="logo">
-		<img src="images/WPlogo.png" />
+		<img src="images/WPlogo.png" alt="logo" />
 	</div>
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
@@ -34,7 +34,7 @@
 				<input type="password" name="rpassword" id="rpassword"/>
 				<br />
 				<label for="image">Upload Image</label>
-				<input type="file" name="image" id="image" accept="image/jpeg;image/png;image/gif"/>
+				<input type="file" name="image" id="image" accept="image/*"/>
 				<br />
 				<label for="gender">Gender</label>
 				<select name="gender" id="gender">
