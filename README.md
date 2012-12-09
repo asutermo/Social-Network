@@ -8,6 +8,8 @@ Remaining Tasks:
 
 Signup validation
 Prevent SQL injection
+	convert to prepared statement
+Index redirect
 Friend search
 	search entire db by name/email. show thumbnails
 Profile 

@@ -74,20 +74,21 @@
 
 	function retrieveUserAndFriendStatuses($user) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-
-		//$query = "SELECT users.id, user_"
-		//$result = $db->query($query);
-
-		//SELECT * FROM user_friends LEFT JOIN users on (user_friends.user_id = {$user}) WHERE friend_id = id
-		
-		//not finished yet - shows all users
-		$result = $db->query("SELECT * FROM user_statuses ORDER BY post_date LIMIT 20");
+		$result = $db->query("SELECT users.id, users.username, user_statuses.status, user_statuses.post_date
+FROM
+  users 
+  left outer join user_statuses 
+    on users.id = user_statuses.user_id
+   WHERE users.id in (SELECT friend_id FROM user_friends LEFT JOIN users on (user_friends.user_id = 3) WHERE friend_id = id)
+AND user_statuses.status is not null ORDER BY user_statuses.post_date DESC LIMIT 20;");
 		$count = mysqli_num_rows($result);
 		$statuses = array();
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 			array_push($statuses, $row);
 		}
+
 		$db->close();
+		$statuses = array_merge($statuses, retrieveUserStatuses($user));
 		return $statuses;
 	}
 
