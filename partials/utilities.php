@@ -90,6 +90,7 @@
 		$db->close();
 		$statuses = array_merge($statuses, retrieveUserStatuses($user));
 		usort($statuses, 'compareDate');
+		array_slice($statuses, 20);
 		return $statuses;
 	}
 
