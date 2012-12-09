@@ -1,5 +1,9 @@
 <?php
 	session_start();
+
+	if (isset($_SESSION['logged_on']) && $_SESSION['logged_on']) {
+		header ("Location: home.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
