@@ -111,7 +111,7 @@
 
 	function searchForUser($search) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$search = stripslashes($search);
+		$search = mysql_real_escape_string($search);
 		$result = $db->query("SELECT *  FROM users WHERE  (`email` LIKE '%".$search."%') OR  (`first_name` LIKE '%".$search."%')  OR  (`last_name` LIKE '%".$search."%')  OR  (`username` LIKE '%".$search."%');");
 		$searchresults = array();
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
