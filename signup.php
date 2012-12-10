@@ -1,14 +1,14 @@
 <?php
 	session_start();
-
-	$username = mysql_real_escape_string($_POST['user']);
-	$email = mysql_real_escape_string($_POST['email']);
-	$firstname = mysql_real_escape_string($_POST['first']);
-	$lastname = mysql_real_escape_string($_POST['last']);
-	$password = mysql_real_escape_string($_POST['password']);
-	$gender = mysql_real_escape_string($_POST['gender']);
-	$age = mysql_real_escape_string($_POST['age']);
-	$other = mysql_real_escape_string($_POST['other']);
+	@ $db = new mysqli(localhost, team04, fuchsia, team04);
+	$username = $db->real_escape_string($_POST['user']);
+	$email = $db->real_escape_string($_POST['email']);
+	$firstname = $db->real_escape_string($_POST['first']);
+	$lastname = $db->real_escape_string($_POST['last']);
+	$password = $db->real_escape_string($_POST['password']);
+	$gender = $db->real_escape_string($_POST['gender']);
+	$age = $db->real_escape_string($_POST['age']);
+	$other = $db->real_escape_string($_POST['other']);
 
 	//retrieve image, read file to prep for insertion into db
 	$profilepic = $_FILES['image']['tmp_name'];
@@ -17,9 +17,6 @@
 	$store = addslashes($store);
 	fclose($fp);
 	$encoded = chunk_split(base64_encode($store)); 
-
-
-	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	//check for pre-existing emails
 	$result = $db->query("SELECT * FROM users WHERE email='{$email}'");

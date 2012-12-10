@@ -7,13 +7,13 @@
 	}
 	include("partials/utilities.php");
 
+	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 	$user = $_SESSION['user']; 
-	$username = mysql_real_escape_string($_POST['user']);
-	$firstname = mysql_real_escape_string($_POST['first']);
-	$lastname = mysql_real_escape_string($_POST['last']);
-	$age = mysql_real_escape_string($_POST['age']);
-	$other = mysql_real_escape_string($_POST['other']);
-
+	$username = $db->real_escape_string($_POST['user']);
+	$firstname = $db->real_escape_string($_POST['first']);
+	$lastname = $db->real_escape_string($_POST['last']);
+	$age = $db->real_escape_string($_POST['age']);
+	$other = $db->real_escape_string($_POST['other']);
 
 	//retrieve image, read file to prep for insertion into db
 	$profilepic = $_FILES['image']['tmp_name'];
@@ -23,7 +23,7 @@
 	fclose($fp);
 	$encoded = chunk_split(base64_encode($store)); 
 
-	@ $db = new mysqli(localhost, team04, fuchsia, team04);
+	
 	$result = $db->query("UPDATE `users` SET username ='$username', first_name = '$firstname', last_name= '$lastname' , profile_pic= '$profilepic' , age= '$age' , other= '$other' WHERE id = $user;");
 	
 	$db->close();
