@@ -7,17 +7,8 @@
 		$stmt = $db->prepare($query);
 		$stmt->bind_param('ii', $user, $friend);
 		$stmt->execute();
-		$stmt->store_result();
-		$count = $stmt->num_rows();
 		$stmt->close();
-		if ($count != 0) {
-			$db->close();
-			return true;
-		}
-		else {
-			$db->close();
-			return false;	
-		}
+		$db->close();
 	}
 
 	

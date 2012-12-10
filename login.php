@@ -7,12 +7,12 @@
 	}
 
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
-	$username = $db->real_escape_string($_POST['user']);
+	$email = $db->real_escape_string($_POST['email']);
 	$password = md5($db->real_escape_string($_POST['password']));
 
 	
 
-	$result = $db->query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
+	$result = $db->query("SELECT * FROM users WHERE email='{$email}' AND password='{$password}'");
 	$count = mysqli_num_rows($result);
 
 	if ($count != 0) {

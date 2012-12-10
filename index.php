@@ -36,8 +36,8 @@
 
 			?>
 			<form action="login.php" method="POST">
-				<label for="user">Username</label>
-				<input type="text" name="user" id="user"/>
+				<label for="email">Email</label>
+				<input type="text" name="email" id="email"/>
 				<br />
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password"/>

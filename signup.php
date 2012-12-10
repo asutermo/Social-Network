@@ -8,15 +8,13 @@
 	$password = $db->real_escape_string($_POST['password']);
 	$gender = $db->real_escape_string($_POST['gender']);
 	$age = $db->real_escape_string($_POST['age']);
-	$other = $db->real_escape_string($_POST['other']);
+	$other = $db->real_escape_string(	$_POST['other']);
 
 	//retrieve image, read file to prep for insertion into db
-	$profilepic = $_FILES['image']['tmp_name'];
-	$fp = fopen($profilepic, 'r');
-	$store = fread($fp, filesize($profilepic));
-	$store = addslashes($store);
-	fclose($fp);
-	$encoded = chunk_split(base64_encode($store)); 
+	$target = "images/"; 
+ 	$target = $target . basename( $_FILES['image']['name']); 
+	$profilepic = $_FILES['image']['name'];
+
 
 	//check for pre-existing emails
 	$query = "SELECT * FROM users WHERE email = ?";
@@ -37,6 +35,8 @@
 		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
 		$stmt->execute();
 		$stmt->close();
+
+		move_uploaded_file($_FILES['image']['tmp_name'], $target);
 		$_SESSION['created'] = "New profile created! You may log in now!";
 		header("Location: index.php");
 	}
