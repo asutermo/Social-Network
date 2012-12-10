@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	if (isset($_SESSION['error'])) {
+		$error = $_SESSION['error'];
+		$_SESSION['error'] = "";	
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +19,11 @@
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>
 			<div id="error">
+				<?php
+					if (isset($error)) {
+						echo $error;
+					}
+				?>
 			</div>
 			<form action="signup.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this);">
 				<label for="user">Username</label>

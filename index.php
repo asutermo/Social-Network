@@ -4,10 +4,7 @@
 	if (isset($_SESSION['logged_on']) && $_SESSION['logged_on']) {
 		header ("Location: home.php");
 	}
-	if (isset($_SESSION['error'])) {
-		$error = $_SESSION['error'];
-		$_SESSION['error'] = "";	
-	}
+	
 	if (isset($_SESSION['created'])) {
 		$created = $_SESSION['created'];
 		$_SESSION['created'] = "";	
@@ -33,9 +30,6 @@
 			<br />
 			<br />
 			<?php
-				if (isset($error)) {
-					echo $error;
-				}
 				if (isset($created)) {
 					echo $created;
 				}		

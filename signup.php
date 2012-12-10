@@ -1,14 +1,14 @@
 <?php
 	session_start();
 
-	$username = stripslashes($_POST['user']);
-	$email = stripslashes($_POST['email']);
-	$firstname = stripslashes($_POST['first']);
-	$lastname = stripslashes($_POST['last']);
-	$password = stripslashes($_POST['password']);
-	$gender = stripslashes($_POST['gender']);
-	$age = stripslashes($_POST['age']);
-	$other = stripslashes($_POST['other']);
+	$username = mysql_real_escape_string($_POST['user']);
+	$email = mysql_real_escape_string($_POST['email']);
+	$firstname = mysql_real_escape_string($_POST['first']);
+	$lastname = mysql_real_escape_string($_POST['last']);
+	$password = mysql_real_escape_string($_POST['password']);
+	$gender = mysql_real_escape_string($_POST['gender']);
+	$age = mysql_real_escape_string($_POST['age']);
+	$other = mysql_real_escape_string($_POST['other']);
 
 	//retrieve image, read file to prep for insertion into db
 	$profilepic = $_FILES['image']['tmp_name'];
@@ -28,7 +28,7 @@
 	//if validation fails
 	if ($count != 0) {
 		$_SESSION['error'] = "This email has already been used.";
-		header("Location: ../newuser.php");
+		header("Location: newuser.php");
 	}
 	else {
 		$stmt = $db->prepare("INSERT INTO users (username, first_name, last_name, email, password, profile_pic, gender, age, other) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
