@@ -6,7 +6,6 @@ A social network for csci445
 
 Remaining Tasks:
 
-Signup validation
 Prevent SQL injection
 	convert to prepared statement
 Friend search
@@ -14,4 +13,3 @@ Friend search
 Profile 
 	Display profile pic
 CSS3
-Javascript

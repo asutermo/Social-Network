@@ -8,11 +8,11 @@
 	include("partials/utilities.php");
 
 	$user = $_SESSION['user']; 
-	$username = stripslashes($_POST['user']);
-	$firstname = stripslashes($_POST['first']);
-	$lastname = stripslashes($_POST['last']);
-	$age = stripslashes($_POST['age']);
-	$other = stripslashes($_POST['other']);
+	$username = mysql_real_escape_string($_POST['user']);
+	$firstname = mysql_real_escape_string($_POST['first']);
+	$lastname = mysql_real_escape_string($_POST['last']);
+	$age = mysql_real_escape_string($_POST['age']);
+	$other = mysql_real_escape_string($_POST['other']);
 
 
 	//retrieve image, read file to prep for insertion into db
