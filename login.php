@@ -22,7 +22,7 @@
 	}
 	else {
 		$_SESSION['logged_on'] = false;
-		$_SESSION['failure'] = "Failed to log in";
+		$_SESSION['error'] = "Failed to log in";
 		header("Location: index.php");	
 	}
 	$db->close();

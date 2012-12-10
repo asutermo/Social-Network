@@ -14,7 +14,9 @@
 	<div>
 		<h1>SIGN UP DO IT!!!</h1>
 		<div>
-			<form action="signup.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this)">
+			<div id="error">
+			</div>
+			<form action="signup.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this);">
 				<label for="user">Username</label>
 				<input type="text" name="user" id="user"/>
 				<br />
