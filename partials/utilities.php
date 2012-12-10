@@ -79,7 +79,7 @@
  					users 
   					left outer join user_statuses 
     				on users.id = user_statuses.user_id
-   					WHERE users.id in (SELECT friend_id FROM user_friends LEFT JOIN users on (user_friends.user_id = 3) WHERE friend_id = id)
+   					WHERE users.id in (SELECT friend_id FROM user_friends LEFT JOIN users on (user_friends.user_id = $user) WHERE friend_id = id)
 					AND user_statuses.status is not null ORDER BY user_statuses.post_date DESC LIMIT 20;");
 		$count = mysqli_num_rows($result);
 		$statuses = array();
