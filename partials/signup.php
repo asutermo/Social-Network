@@ -16,7 +16,9 @@
 	$store = fread($fp, filesize($profilepic));
 	$store = addslashes($store);
 	fclose($fp);
-	
+	$encoded = chunk_split(base64_encode($store)); 
+
+
 	@ $db = new mysqli(localhost, team04, fuchsia, team04);
 
 	//check for pre-existing emails
@@ -32,11 +34,8 @@
 		$stmt = $db->prepare("INSERT INTO users (username, first_name, last_name, email, password, profile_pic, gender, age, other) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
 		$stmt->execute();
-		$_SESSION['logged_on'] = true;
-		$_SESSION['username'] = $username;
-		$_SESSION['user_id'] = $user['user_id'];
-
-		header("Location: ../home.php");
+		$_SESSION['created'] = "New profile created! You may log in now!";
+		header("Location: ../index.php");
 	}
 	$db->close();
 ?>`

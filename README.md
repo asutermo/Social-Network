@@ -9,12 +9,9 @@ Remaining Tasks:
 Signup validation
 Prevent SQL injection
 	convert to prepared statement
-Index redirect
 Friend search
-	search entire db by name/email. show thumbnails
+	 show thumbnails
 Profile 
 	Display profile pic
-Status updates
-	display 20 most recent status updates between current user and friends on user's  home
 CSS3
 Javascript

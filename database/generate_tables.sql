@@ -21,8 +21,6 @@ CREATE TABLE `users` (
   `email` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `profile_pic` blob,
-  `mime_type` varchar(30) DEFAULT NULL,
-  `mime_name` varchar(50) DEFAULT NULL,
   `gender` varchar(1) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `other` varchar(255) DEFAULT NULL,
