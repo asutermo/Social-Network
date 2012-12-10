@@ -19,8 +19,13 @@
 	$encoded = chunk_split(base64_encode($store)); 
 
 	//check for pre-existing emails
-	$result = $db->query("SELECT * FROM users WHERE email='{$email}'");
-	$count = mysqli_num_rows($result);
+	$query = "SELECT * FROM users WHERE email = ?";
+	$stmt = $db->prepare($query);
+	$stmt->bind_param('s', $email);
+	$stmt->execute();
+	$stmt->store_result();
+	$count = $stmt->num_rows();
+	$stmt->close();
 
 	//if validation fails
 	if ($count != 0) {
@@ -31,6 +36,7 @@
 		$stmt = $db->prepare("INSERT INTO users (username, first_name, last_name, email, password, profile_pic, gender, age, other) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
 		$stmt->execute();
+		$stmt->close();
 		$_SESSION['created'] = "New profile created! You may log in now!";
 		header("Location: index.php");
 	}
