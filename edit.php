@@ -3,9 +3,9 @@
 	session_start();
 
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
-	include("../partials/utilities.php");
+	include("partials/utilities.php");
 
 	$user = $_SESSION['user']; 
 	$username = stripslashes($_POST['user']);
@@ -28,6 +28,6 @@
 	
 	$db->close();
 
-	header("Location: ../profile.php");
+	header("Location: profile.php");
 
 ?>

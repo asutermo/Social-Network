@@ -2,10 +2,10 @@
 	session_start();
 
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 
-	include("../partials/utilities.php");
+	include("partials/utilities.php");
 	$user = $_SESSION['user']; 
 	$members_list = retrieveMembers($user);
 ?>
@@ -17,12 +17,12 @@
 </head>
 <body>
 	<?php
-		include("../partials/menu.php");
+		include("menu.php");
 	?>
 	<h1>The Other Site Goers!</h1>
 	<div>
 
-		<form action="../partials/search.php" method="POST">
+		<form action="search.php" method="POST">
 				<label for="search">Search for friend using username, name, or email</label>
 				<input type="text" name="search" id="search"/>
 				<br />

@@ -4,7 +4,7 @@
 	if (!$_SESSION['logged_on']) {
 		header("Location: index.php");
 	}
-	include("/partials/utilities.php");
+	include("partials/utilities.php");
 	$user = $_SESSION['user'];
 	$statuses = retrieveUserAndFriendStatuses($user);
 ?>
@@ -16,7 +16,7 @@
 </head>
 <body>
 	<?php
-		include("partials/menu.php");
+		include("menu.php");
 	?>
 	<div>
 		<h1>Welcome to your news feed</h1>

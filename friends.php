@@ -2,11 +2,11 @@
 	session_start();
 
 
-	include("../partials/utilities.php");
+	include("partials/utilities.php");
 	
 	//if user is not logged in
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 
 	$user = $_SESSION['user']; 
@@ -42,7 +42,7 @@
 </head>
 <body>
 	<?php
-		include("../partials/menu.php");
+		include("menu.php");
 	?>
 	<h1>Muh Friends!</h1>
 	<div>

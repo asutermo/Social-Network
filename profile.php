@@ -4,7 +4,7 @@
 	if (!$_SESSION['logged_on']) {
 		header("Location: index.php");
 	}
-	include("/partials/utilities.php");
+	include("partials/utilities.php");
 	$user = $_SESSION['user']; 
 
 	$showCurrentProfile = true;
@@ -29,13 +29,13 @@
 </head>
 <body>
 	<?php
-		include("partials/menu.php");
+		include("menu.php");
 	?>
 	<div>
 		<?php
 			if (isset($showCurrentProfile) && $showCurrentProfile) {
 				echo "<h1>Welcome to your profile page</h1>\n";
-				echo "<a href=\"partials/editform.php\">Edit Profile</a>\n";
+				echo "<a href=\"editform.php\">Edit Profile</a>\n";
 			}
 			else {
 				echo "<h1>Other user's profile page</h1>\n";	

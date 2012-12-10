@@ -2,10 +2,10 @@
 	session_start();
 
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 
-	include("../partials/utilities.php");
+	include("partials/utilities.php");
 	$user = $_SESSION['user']; 
 	if (isset($_POST['search'])) {
 		$search_list = searchForUser($_POST['search']);
@@ -19,12 +19,12 @@
 </head>
 <body>
 	<?php
-		include("../partials/menu.php");
+		include("menu.php");
 	?>
 	<h1>Your Search Results!</h1>
 	<div>
 
-		<form action="../partials/search.php" method="POST">
+		<form action="search.php" method="POST">
 			<label for="search">Search for friend using username, name, or email</label>
 			<input type="text" name="search" id="search"/>
 			<br />

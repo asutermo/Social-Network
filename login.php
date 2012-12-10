@@ -3,7 +3,7 @@
 
 	//if user is not logged in
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 
 	$username = stripslashes($_POST['user']);
@@ -18,12 +18,12 @@
 		$user = $result->fetch_assoc();
 		$_SESSION['logged_on'] = true;
 		$_SESSION['user'] = $user['id'];
-		header("Location: ../home.php");
+		header("Location: home.php");
 	}
 	else {
 		$_SESSION['logged_on'] = false;
 		$_SESSION['failure'] = "Failed to log in";
-		header("Location: ../index.php");	
+		header("Location: index.php");	
 	}
 	$db->close();
 ?>

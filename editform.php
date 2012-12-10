@@ -2,9 +2,9 @@
 	session_start();
 
 	if(!$_SESSION['logged_on']) {
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
-	include("../partials/utilities.php");
+	include("partials/utilities.php");
 	$user = $_SESSION['user']; 
 	$user_info = getUserInformation($user);
 
@@ -12,17 +12,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script language="JavaScript" src="validator.js"></script>
+	<script type="text/javascript" src="scripts/validator.js"></script>
 	<title>Edit Profile?</title>
 </head>
 <body>
 	<?php
-		include("../partials/menu.php");
+		include("menu.php");
 	?>
 	<div>
 		<h1>Edit profile?</h1>
 		<div>
-			<form action="../partials/edit.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this)">
+			<form action="edit.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup(this)">
 				<?php
 					foreach ($user_info as $user_information) {
 						echo "<label for=\"user\">Username</label>\n"; 

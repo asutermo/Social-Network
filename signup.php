@@ -35,7 +35,7 @@
 		$stmt->bind_param('sssssbsis', $username, $firstname, $lastname, $email, md5($password), $profilepic, $gender, $age, $other);
 		$stmt->execute();
 		$_SESSION['created'] = "New profile created! You may log in now!";
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 	$db->close();
 ?>`
