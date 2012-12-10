@@ -9,6 +9,7 @@
 		header("Location: index.php");
 	}
 
+	
 	$user = $_SESSION['user']; 
 	if (isset($_GET['add'])) {
 		$friend = $_GET['add'];

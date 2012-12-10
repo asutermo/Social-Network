@@ -3,15 +3,27 @@
 	//Friend utilities
 	function addFriend($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
-		$result = $db->query("INSERT INTO user_friends(user_id, friend_id) VALUES ($user, $friend);");
-		$db->close();
+		$query = "INSERT INTO user_friends(user_id, friend_id) VALUES (?, ?);";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param('ii', $user, $friend);
+		$stmt->execute();
+		$stmt->store_result();
+		$count = $stmt->num_rows();
+		$stmt->close();
+		if ($count != 0) {
+			$db->close();
+			return true;
+		}
+		else {
+			$db->close();
+			return false;	
+		}
 	}
 
 	
 	function alreadyFriends($user, $friend) {
 		@ $db = new mysqli(localhost, team04, fuchsia, team04);
 		$query = "SELECT * FROM user_friends WHERE  user_friends.user_id = ? AND user_friends.friend_id = ?;";
-		$result = $db->query($query);
 		$stmt = $db->prepare($query);
 		$stmt->bind_param('ii', $user, $friend);
 		$stmt->execute();
